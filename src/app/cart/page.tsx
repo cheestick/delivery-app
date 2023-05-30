@@ -1,4 +1,7 @@
-import React from "react";
+export const metadata = {
+  title: "Your Delivery - Cart",
+  description: "Your delivery cart",
+};
 
 export default function CartPage() {
   return (
