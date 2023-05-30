@@ -19,5 +19,5 @@
 }
 
 .order-form {
-  @apply flex flex-col gap-8 items-center;
+  @apply flex flex-col max-w-lg gap-8 items-center py-6   border-2 border-sky-900/70 rounded-2xl;
 }

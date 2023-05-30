@@ -5,11 +5,17 @@ import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
 interface PageLinkProps {
-  children?: ReactNode;
+  children: ReactNode;
   href: string;
 }
 
-export default function PageLink({ href, children }: PageLinkProps) {
+type LinkProps = typeof Link;
+
+export default function PageLink({
+  href,
+  children,
+  ...attributes
+}: LinkProps & PageLinkProps) {
   const pathname = usePathname();
   const isActivePage = href === pathname;
 
@@ -17,6 +23,7 @@ export default function PageLink({ href, children }: PageLinkProps) {
     <Link
       href={href}
       className={`page-nav ${isActivePage ? "page--current" : ""}`}
+      {...attributes}
     >
       {children}
     </Link>
