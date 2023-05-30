@@ -3,7 +3,7 @@ import Input from "./ui/Input";
 
 export default function OrderForm() {
   return (
-    <form className="order-form  mx-auto" autoComplete="off">
+    <form className="order-form" autoComplete="off">
       <label htmlFor="name" className="order-label">
         <span>Name</span>
         <Input

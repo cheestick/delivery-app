@@ -8,9 +8,11 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="flex gap-5  mt-10 text-sky-950">
-      <ShopList title="Shops" />
-      <ProductList />
+    <main className="text-sky-950">
+      <div className="container mx-auto mt-10 flex gap-10">
+        <ShopList title="Shops" />
+        <ProductList />
+      </div>
     </main>
   );
 }

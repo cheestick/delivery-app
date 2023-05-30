@@ -26,7 +26,7 @@ const products = [
 
 export default function ProductList() {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-4 mx-auto">
       {products.map((p) => (
         <ProductCard key={p.id} title={p.title} imageUrl={p.imageUrl} />
       ))}
