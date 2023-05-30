@@ -2,10 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.page-nav {
+  @apply bg-black/5 px-4 py-2 active:bg-black/10 hover:underline underline-offset-8;
+}
+
+.page--current {
+  @apply bg-black/80 text-white active:bg-black/90;
+}
+
 .button {
   @apply px-4 py-2 border-2 border-sky-800 rounded-xl uppercase font-bold hover:bg-sky-100 active:bg-sky-200;
 }
 
 .input {
-  @apply px-4 py-2 border-b-2 border-b-sky-800 placeholder:text-sky-700/40;
+  @apply px-4 py-2 border-b-2 border-b-sky-800/70 placeholder:text-sky-700/40;
+}
+
+.order-form {
+  @apply flex flex-col gap-8 items-center;
 }
