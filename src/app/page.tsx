@@ -1,4 +1,3 @@
-import OrderForm from "@/components/orderForm";
 import Button from "@/components/ui/Button";
 
 export const metadata = {
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <main className="mt-10  text-sky-950">
       <h1>Shop</h1>
-      <OrderForm />
       <Button>Add to cart</Button>
     </main>
   );

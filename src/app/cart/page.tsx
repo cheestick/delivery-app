@@ -1,3 +1,5 @@
+import OrderForm from "@/components/orderForm";
+
 export const metadata = {
   title: "Your Delivery - Cart",
   description: "Your delivery cart",
@@ -5,8 +7,8 @@ export const metadata = {
 
 export default function CartPage() {
   return (
-    <div>
-      <h1>Cart</h1>
-    </div>
+    <main className="mt-10 text-sky-900/70">
+      <OrderForm />
+    </main>
   );
 }
