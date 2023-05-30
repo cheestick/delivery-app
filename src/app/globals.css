@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button {
+  @apply px-4 py-2 border-2 border-sky-800 rounded-xl uppercase font-bold hover:bg-sky-100 active:bg-sky-200;
+}
+
+.input {
+  @apply px-4 py-2 border-b-2 border-b-sky-800 placeholder:text-sky-700/40;
+}
