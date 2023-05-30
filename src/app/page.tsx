@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import ShopList from "@/components/ShopList";
 
 export const metadata = {
   title: "Your Delivery - Shops",
@@ -7,9 +7,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="mt-10  text-sky-950">
-      <h1>Shop</h1>
-      <Button>Add to cart</Button>
+    <main className="flex  mt-10 text-sky-950">
+      <ShopList title="Shops" />
     </main>
   );
 }
