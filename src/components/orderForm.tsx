@@ -3,10 +3,15 @@ import Input from "./ui/Input";
 
 export default function OrderForm() {
   return (
-    <form className="order-form  mx-auto" autoFocus autoComplete="off">
+    <form className="order-form  mx-auto" autoComplete="off">
       <label htmlFor="name" className="order-label">
         <span>Name</span>
-        <Input id="name" placeholder="Maksym Chystiakov" name="name" />
+        <Input
+          id="name"
+          placeholder="Maksym Chystiakov"
+          name="name"
+          autoFocus
+        />
       </label>
 
       <label htmlFor="email" className="order-label">

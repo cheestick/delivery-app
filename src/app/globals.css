@@ -11,11 +11,11 @@
 }
 
 .button {
-  @apply px-4 py-2 border-2 border-sky-800 rounded-xl uppercase font-bold hover:bg-sky-100 active:bg-sky-200;
+  @apply px-4 py-2 border-2 border-sky-800/80 text-sky-800/80 rounded-xl uppercase font-bold hover:bg-sky-100 active:bg-sky-200;
 }
 
 .input {
-  @apply px-4 py-2 border-b-2 border-b-sky-800/70 font-medium placeholder:text-sky-700/40 focus:outline-none focus:bg-sky-700/10;
+  @apply px-4 py-2 border-b-2 border-b-sky-800/70 font-medium placeholder:text-sky-700/20 focus:outline-none focus:bg-sky-700/10;
 }
 
 .order-form {
