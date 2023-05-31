@@ -1,14 +1,15 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import ShopCard from "./ShopCard";
-
-const shops = ["KFCK", "Mc Daddy", "Salmoneira", "Gold & Wine", "Susiray"];
 
 type ShopListProps = {
   title?: string;
+  shopList: Shop[];
 };
 
-export default function ShopList({ title }: ShopListProps) {
-  const content = shops.map((shop) => <ShopCard key={shop} shopname={shop} />);
+export default function ShopList({ title, shopList }: ShopListProps) {
+  const content = shopList.map(({ id, name }) => (
+    <ShopCard key={id} shopname={name} />
+  ));
 
   return (
     <div>
