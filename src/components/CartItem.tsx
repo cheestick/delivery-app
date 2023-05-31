@@ -12,15 +12,15 @@ export default function CartItem({
   price = 25.99,
 }: CartItemProps) {
   return (
-    <div className="flex gap-10 bg-sky-700/10 rounded-2xl overflow-hidden ">
+    <div className="flex gap-10 justify-between mb-3 bg-sky-700/10 rounded-2xl overflow-hidden ">
       <Image
         className="aspect-square object-cover object-center "
         src={"/images/burger.jpg"}
         alt={"Product"}
-        width={200}
-        height={200}
+        width={180}
+        height={180}
       />
-      <div className="flex flex-col justify-between my-5">
+      <div className="flex flex-col justify-between my-5 mr-16">
         <h2 className="text-2xl font-medium">{title}</h2>
         <p className="text-lg font-light">
           Price: <span>{price}$</span>

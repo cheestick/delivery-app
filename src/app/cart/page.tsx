@@ -1,5 +1,6 @@
 import CartItem from "@/components/CartItem";
 import OrderForm from "@/components/orderForm";
+import Button from "@/components/ui/Button";
 
 export const metadata = {
   title: "Your Delivery - Cart",
@@ -8,10 +9,23 @@ export const metadata = {
 
 export default function CartPage() {
   return (
-    <main className="container mt-10 mx-auto text-sky-900/70 flex gap-10">
-      <OrderForm />
-      <div className="basis-1/2">
-        <CartItem />
+    <main className="  text-sky-900/70 ">
+      <div className="container mt-10 mb-20 mx-auto">
+        <div className=" flex gap-10 items-start ">
+          <OrderForm />
+          <div className="basis-full max-h-[60vh] overflow-auto">
+            <CartItem />
+            <CartItem />
+            <CartItem />
+            <CartItem />
+          </div>
+        </div>
+        <div className="flex justify-end gap-10 items-center mt-10">
+          <div>
+            Total Price: <span>500</span>$
+          </div>
+          <Button>Make order</Button>
+        </div>
       </div>
     </main>
   );

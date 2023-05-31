@@ -3,7 +3,7 @@ import Input from "./ui/Input";
 
 export default function OrderForm() {
   return (
-    <form className="order-form" autoComplete="off">
+    <form className="order-form h-100% basis-full" autoComplete="off">
       <label htmlFor="name" className="order-label">
         <span>Name</span>
         <Input
