@@ -1,28 +1,15 @@
 import { NextResponse } from "next/server";
+import { mongooseConnect } from "@/lib/mongoose";
+import { Shop } from "@/models/Shop";
 
-const shops: Shop[] = [
-  {
-    id: 1001,
-    name: "KFCK",
-  },
-  {
-    id: 1002,
-    name: "Mc Daddy",
-  },
-  {
-    id: 1003,
-    name: "Salmoneira",
-  },
-  {
-    id: 1004,
-    name: "Gold & Wine",
-  },
-  {
-    id: 1005,
-    name: "Susiray",
-  },
-];
+export async function GET(req: Request, res: Response) {
+  await mongooseConnect();
 
-export async function GET(req: Request) {
+  const shops: Shop[] = await Shop.find({});
+
+  if (!shops) {
+    return new Response("Not found", { status: 404 });
+  }
+
   return NextResponse.json(shops);
 }
