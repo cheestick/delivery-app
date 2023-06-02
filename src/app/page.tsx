@@ -26,7 +26,7 @@ export default async function Home() {
 
   return (
     <main className="text-sky-950">
-      <div className="container mx-auto mt-10 flex gap-10">
+      <div className="container mx-auto mt-10 mb-40 flex gap-10">
         <ShopList title="Shops" shopList={shops} />
         <ProductList productList={products} />
       </div>
