@@ -1,11 +1,8 @@
-import { mongooseConnect } from "@/lib/mongoose";
-import { Product } from "@/models/Product";
+import { getAllProducts } from "@/services/getAllProducts";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
-  await mongooseConnect();
-
-  const products: Product[] = await Product.find({});
+  const products: Product[] = await getAllProducts();
 
   return NextResponse.json(products);
 }

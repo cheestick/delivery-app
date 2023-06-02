@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
-import { mongooseConnect } from "@/lib/mongoose";
-import { Shop } from "@/models/Shop";
+import { getAllShops } from "@/services/getAllShops";
 
 export async function GET(req: Request, res: Response) {
-  await mongooseConnect();
-
-  const shops: Shop[] = await Shop.find({});
+  const shops: Shop[] = await getAllShops();
 
   if (!shops) {
     return new Response("Not found", { status: 404 });
