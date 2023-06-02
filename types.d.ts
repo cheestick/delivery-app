@@ -1,14 +1,14 @@
 type Shop = {
-  id: number;
+  _id: string;
   name: string;
 };
 
 type Product = {
-  id: number;
+  _id: string;
   title: string;
   price: number;
-  imageUrl: string;
-  shopId: number;
+  imageURL: string;
+  shopId: string;
 };
 
 type CartItem = {
@@ -30,5 +30,5 @@ type Contacts = {
 };
 
 type User = {
-  id: number;
+  _id: string;
 } & Contacts;
