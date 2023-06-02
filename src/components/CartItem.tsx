@@ -1,21 +1,24 @@
 import React from "react";
 import InputCounter from "./ui/InputCounter";
 import Image from "next/image";
+import { defaultImageURL } from "@/utils/constants";
 
 type CartItemProps = {
   title?: string;
   price?: number;
+  imageURL?: string;
 };
 
 export default function CartItem({
   title = "Default title",
   price = 25.99,
+  imageURL,
 }: CartItemProps) {
   return (
     <div className="flex gap-10 justify-between mb-3 bg-sky-700/10 rounded-2xl overflow-hidden ">
       <Image
         className="aspect-square object-cover object-center "
-        src={"/images/burger.jpg"}
+        src={imageURL || defaultImageURL}
         alt={"Product"}
         width={180}
         height={180}
