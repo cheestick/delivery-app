@@ -1,4 +1,4 @@
-import CartItem from "@/components/CartItem";
+import CartItemList from "@/components/CartItemList";
 import OrderForm from "@/components/orderForm";
 import Button from "@/components/ui/Button";
 
@@ -14,10 +14,7 @@ export default function CartPage() {
         <div className=" flex gap-10 items-start ">
           <OrderForm />
           <div className="basis-full max-h-[60vh] overflow-auto">
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            <CartItemList />
           </div>
         </div>
         <div className="flex justify-end gap-10 items-center mt-10">
