@@ -11,18 +11,25 @@ type Product = {
   shopId: string;
 };
 
-type CartItem = {
+type CartItemDeprecated = {
   product: Product;
   quantity: number;
 };
 
+type ProductID = Pick<Product, "_id">;
+
+type CartItem = {
+  productID: ProductID;
+  quantity: number;
+};
+
 type Order = {
-  orderDetails: Contacts;
-  items: CartItem[];
+  credentials: Credentials;
+  purchase: CartItem[];
   totalSum: number;
 };
 
-type Contacts = {
+type Credentials = {
   name: string;
   email: string;
   phone: string;
@@ -31,4 +38,4 @@ type Contacts = {
 
 type User = {
   _id: string;
-} & Contacts;
+} & Credentials;
