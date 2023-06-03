@@ -16,6 +16,7 @@ const ProductSchema = new Schema({
   shopID: {
     type: Schema.Types.ObjectId,
     required: [true, "shop id is required"],
+    ref: "Shop",
   },
 });
 
