@@ -12,30 +12,33 @@ const PurchaseSchema = new Schema({
   },
 });
 
-const OrderSchema = new Schema({
-  credentials: {
-    name: {
-      type: String,
-      required: [true, "Name is required"],
+const OrderSchema = new Schema(
+  {
+    credentials: {
+      name: {
+        type: String,
+        required: [true, "Name is required"],
+      },
+      email: {
+        type: String,
+        required: [true, "Email is required"],
+      },
+      phone: {
+        type: String,
+        required: [true, "Phone number is required"],
+      },
+      address: {
+        type: String,
+        required: [true, "Delivery address is required"],
+      },
     },
-    email: {
-      type: String,
-      required: [true, "Email is required"],
-    },
-    phone: {
-      type: String,
-      required: [true, "Phone number is required"],
-    },
-    address: {
-      type: String,
-      required: [true, "Delivery address is required"],
+    purchases: [PurchaseSchema],
+    totalSum: {
+      type: Number,
+      required: [true, "Total sum is required"],
     },
   },
-  purchases: [PurchaseSchema],
-  totalSum: {
-    type: Number,
-    required: [true, "Total sum is required"],
-  },
-});
+  { timestamps: true }
+);
 
 export const Order = models.Order || model("Order", OrderSchema);
