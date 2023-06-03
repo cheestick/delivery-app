@@ -9,8 +9,14 @@ type ProductListProps = {
 export default function ProductList({ productList }: ProductListProps) {
   return (
     <div className="flex flex-wrap gap-4 mx-auto">
-      {productList.map(({ _id, title, imageURL }) => (
-        <ProductCard key={_id} title={title} imageUrl={imageURL} />
+      {productList.map(({ _id, title, imageURL, price }) => (
+        <ProductCard
+          key={_id}
+          title={title}
+          imageURL={imageURL}
+          price={price}
+          _id={_id}
+        />
       ))}
     </div>
   );
