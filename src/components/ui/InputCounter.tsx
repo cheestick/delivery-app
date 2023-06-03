@@ -8,14 +8,17 @@ interface InputCounterProps
   className?: string;
 }
 
-export default function InputCounter({ className }: InputCounterProps) {
+export default function InputCounter({
+  className,
+  ...attributes
+}: InputCounterProps) {
   return (
     <input
       type="number"
       className={`input ${className ? className : ""}`}
       min={0}
       max={100}
-      defaultValue={1}
+      {...attributes}
     />
   );
 }
