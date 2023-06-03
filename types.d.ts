@@ -27,7 +27,7 @@ type CartItem = {
 
 type Order = {
   credentials: Credentials;
-  purchase: CartItem[];
+  purchases: CartItem[];
   totalSum: number;
 };
 
