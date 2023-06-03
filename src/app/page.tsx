@@ -9,12 +9,12 @@ export const metadata = {
 const { API_URL } = process.env;
 
 async function getAllShops() {
-  return (await fetch(`${API_URL}/shops`, { next: { revalidate: 60 } })).json();
+  return (await fetch(`${API_URL}/shops`, { next: { revalidate: 5 } })).json();
 }
 
 async function getAllProducts() {
   return (
-    await fetch(`${API_URL}/products`, { next: { revalidate: 60 } })
+    await fetch(`${API_URL}/products`, { next: { revalidate: 5 } })
   ).json();
 }
 
