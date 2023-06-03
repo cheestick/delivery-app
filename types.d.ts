@@ -17,6 +17,8 @@ type CartItemDeprecated = {
 };
 
 type ProductID = Pick<Product, "_id">;
+type LSCartItem = Omit<Product, "shopId"> & { quantity?: number };
+type RequiredLSCartItem = Required<LSCartItem>;
 
 type CartItem = {
   productID: ProductID;
