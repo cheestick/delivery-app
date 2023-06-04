@@ -33,7 +33,7 @@ export default function MakeOrderButton() {
   };
 
   const submitMakeOrder = async () => {
-    if (!totalPrice || !checkout.length || !validateCredentials(credentials)) {
+    if (!totalPrice || isCartEmpty || hasFormGaps) {
       setError(true);
       setTimeout(() => setError(false), 3000);
       return;
@@ -45,7 +45,9 @@ export default function MakeOrderButton() {
     }));
 
     const orderDTO: Order = { credentials, totalPrice, purchases };
+
     setLoading(true);
+
     const result = await createNewOrder(orderDTO);
     if (result.ok) {
       resetOrderForm();
@@ -53,9 +55,20 @@ export default function MakeOrderButton() {
     setLoading(false);
   };
 
+  const hasFormGaps = !validateCredentials(credentials);
+  const zeroQuantity = checkout.every(({ quantity }) => quantity < 1);
+  const isCartEmpty = checkout.length < 1;
+  const isButtonDisabled =
+    loading || error || isCartEmpty || zeroQuantity || hasFormGaps;
+  const buttonStatusText =
+    ((error || hasFormGaps) && "Complete form") ||
+    (loading && "Making order...") ||
+    (zeroQuantity && !isCartEmpty && "Increase quantity") ||
+    "Make order";
+
   return (
-    <Button onClick={submitMakeOrder} disabled={loading || error}>
-      {error ? "Fill form" : loading ? "Sending..." : "Make order"}
+    <Button onClick={submitMakeOrder} disabled={isButtonDisabled}>
+      {buttonStatusText}
     </Button>
   );
 }
