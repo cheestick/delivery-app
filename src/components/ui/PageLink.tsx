@@ -9,13 +9,7 @@ interface PageLinkProps {
   href: string;
 }
 
-type LinkProps = typeof Link;
-
-export default function PageLink({
-  href,
-  children,
-  ...attributes
-}: LinkProps & PageLinkProps) {
+export default function PageLink({ href, children }: PageLinkProps) {
   const pathname = usePathname();
   const isActivePage = href === pathname;
 
@@ -23,7 +17,6 @@ export default function PageLink({
     <Link
       href={href}
       className={`page-nav ${isActivePage ? "page--current" : ""}`}
-      {...attributes}
     >
       {children}
     </Link>
