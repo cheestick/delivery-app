@@ -6,7 +6,7 @@ export const metadata = {
   description: "Shops list",
 };
 
-const { API_URL } = process.env;
+const API_URL = process.env.API_URL;
 
 async function getAllShops() {
   return (await fetch(`${API_URL}/shops`, { next: { revalidate: 5 } })).json();

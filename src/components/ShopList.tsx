@@ -7,7 +7,7 @@ type ShopListProps = {
 };
 
 export default function ShopList({ title, shopList }: ShopListProps) {
-  const content = shopList.map(({ _id, name }) => (
+  const content = shopList?.map(({ _id, name }) => (
     <ShopCard key={_id} shopname={name} />
   ));
 
