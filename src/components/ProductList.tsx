@@ -8,7 +8,7 @@ type ProductListProps = {
   productList: Product[];
 };
 
-export default function ProductList({ productList }: ProductListProps) {
+export default function ProductList({ productList = [] }: ProductListProps) {
   return (
     <OrderProvider>
       <div className="flex flex-wrap gap-4 mx-auto">
