@@ -4,12 +4,6 @@ import MakeOrderButton from "@/components/MakeOrderButton";
 import TotalPrice from "@/components/TotalPrice";
 import OrderForm from "@/components/orderForm";
 import ShoppingCartProviders from "@/components/providers/ShoppingCartProviders";
-import Button from "@/components/ui/Button";
-
-export const metadata = {
-  title: "Your Delivery - Cart",
-  description: "Your delivery cart",
-};
 
 export default function ShoppingCartPage() {
   return (
