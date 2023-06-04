@@ -8,20 +8,7 @@ import {
 import Button from "./ui/Button";
 import { initCredentials } from "./providers/ShoppingCartProviders";
 import { validateCredentials } from "@/utils/validateCredentials";
-
-const URL = process.env.NEXT_PUBLIC_API_URL;
-
-async function createNewOrder(order: Order) {
-  const body = JSON.stringify(order);
-
-  return await fetch(`${URL}/orders`, {
-    method: "POST",
-    body,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-}
+import { createNewOrder } from "@/services/createNewOrder";
 
 export default function MakeOrderButton() {
   const { credentials, setCredentials } = useContext(CredentialsContext);
