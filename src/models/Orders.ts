@@ -33,7 +33,7 @@ const OrderSchema = new Schema(
       },
     },
     purchases: [PurchaseSchema],
-    totalSum: {
+    totalPrice: {
       type: Number,
       required: [true, "Total sum is required"],
     },
