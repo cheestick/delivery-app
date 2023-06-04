@@ -1,5 +1,7 @@
 "use client";
 import CartItemList from "@/components/CartItemList";
+import MakeOrderButton from "@/components/MakeOrderButton";
+import TotalPrice from "@/components/TotalPrice";
 import OrderForm from "@/components/orderForm";
 import ShoppingCartProviders from "@/components/providers/ShoppingCartProviders";
 import Button from "@/components/ui/Button";
@@ -9,7 +11,7 @@ export const metadata = {
   description: "Your delivery cart",
 };
 
-export default function CartPage() {
+export default function ShoppingCartPage() {
   return (
     <ShoppingCartProviders>
       <main className="text-sky-900/70 ">
@@ -21,10 +23,8 @@ export default function CartPage() {
             </div>
           </div>
           <div className="flex justify-end gap-10 items-center mt-10">
-            <div>
-              Total Price: <span>500</span>$
-            </div>
-            <Button>Make order</Button>
+            <TotalPrice />
+            <MakeOrderButton />
           </div>
         </div>
       </main>

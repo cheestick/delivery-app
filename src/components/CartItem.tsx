@@ -1,7 +1,8 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useContext, useState } from "react";
 import InputCounter from "./ui/InputCounter";
 import Image from "next/image";
 import { defaultImageURL } from "@/utils/constants";
+import { OrderContext } from "@/context/OrderProvider";
 
 type CartItemProps = {
   _id: string;
@@ -9,8 +10,6 @@ type CartItemProps = {
   price: number;
   imageURL: string;
   quantity: number;
-  changeQuantity: (value: RequiredLSCartItem[]) => void;
-  checkout: RequiredLSCartItem[];
 };
 
 export default function CartItem({
@@ -19,10 +18,10 @@ export default function CartItem({
   price,
   imageURL,
   quantity,
-  changeQuantity,
-  checkout,
-}: CartItemProps) {
+}: 
+CartItemProps) {
   const [value, setValue] = useState(quantity);
+  const { checkout, saveCheckout } = useContext(OrderContext);
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,10 +29,10 @@ export default function CartItem({
       if (foundItem) {
         setValue(parseInt(e.target.value));
         foundItem.quantity = parseInt(e.target.value);
-        changeQuantity([...checkout]);
+        saveCheckout([...checkout]);
       }
     },
-    [_id, changeQuantity, checkout]
+    [_id, checkout, saveCheckout]
   );
 
   return (

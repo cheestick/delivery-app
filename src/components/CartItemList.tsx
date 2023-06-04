@@ -1,13 +1,10 @@
 "use client";
-import { lsCheckoutKey } from "@/utils/constants";
-import { useLocalStorage } from "@react-hooks-library/core";
 import CartItem from "./CartItem";
+import { useContext } from "react";
+import { OrderContext } from "@/context/OrderProvider";
 
 function CartItemList() {
-  const [checkout, setCheckout] = useLocalStorage<RequiredLSCartItem[]>(
-    lsCheckoutKey,
-    []
-  );
+  const { checkout } = useContext(OrderContext);
   return (
     <>
       {checkout.map(({ _id, title, price, imageURL, quantity }) => (
@@ -18,8 +15,6 @@ function CartItemList() {
           price={price}
           imageURL={imageURL}
           quantity={quantity}
-          checkout={checkout}
-          changeQuantity={setCheckout}
         />
       ))}
     </>
