@@ -13,8 +13,6 @@ export async function createNewOrder(order: Order) {
 
     return result;
   } catch (error) {
-    console.log(error);
-
     return null;
   }
 }

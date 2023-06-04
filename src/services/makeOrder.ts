@@ -12,8 +12,6 @@ export async function makeOrder(order: Order) {
 
     return true;
   } catch (error) {
-    console.log(error);
-
     return false;
   }
 }
