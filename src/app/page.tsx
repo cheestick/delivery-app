@@ -1,5 +1,6 @@
 import ProductList from "@/components/ProductList";
 import ShopList from "@/components/ShopList";
+import axios from "axios";
 
 export const metadata = {
   title: "Your Delivery - Shops",
@@ -9,13 +10,21 @@ export const metadata = {
 const API_URL = process.env.API_URL;
 
 async function getAllShops() {
-  return (await fetch(`${API_URL}/shops`, { next: { revalidate: 5 } })).json();
+  try {
+    const result = await axios.get(`${API_URL}/shops`);
+
+    return result.data;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function getAllProducts() {
-  return (
-    await fetch(`${API_URL}/products`, { next: { revalidate: 5 } })
-  ).json();
+  try {
+    return (await axios.get(`${API_URL}/products`)).data;
+  } catch (error) {
+    throw error;
+  }
 }
 
 export default async function Home() {

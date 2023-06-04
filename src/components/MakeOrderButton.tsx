@@ -41,7 +41,9 @@ export default function MakeOrderButton() {
 
     setLoading(true);
     const result = await createNewOrder(orderDTO);
-    if (result?.ok) {
+    console.log(result);
+
+    if (result?.status === 201) {
       resetOrderForm();
     }
     setLoading(false);
