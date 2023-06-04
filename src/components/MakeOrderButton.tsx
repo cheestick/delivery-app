@@ -33,21 +33,22 @@ export default function MakeOrderButton() {
   };
 
   const submitMakeOrder = async () => {
-    if (!totalPrice || isCartEmpty || hasFormGaps) {
+    if (!canCreateOrder) {
       setError(true);
       setTimeout(() => setError(false), 3000);
       return;
     }
 
-    const purchases = checkout.map(({ _id, quantity }) => ({
-      productID: _id,
-      quantity,
-    }));
+    const purchases = checkout
+      .filter(({ quantity }) => quantity > 0)
+      .map(({ _id, quantity }) => ({
+        productID: _id,
+        quantity,
+      }));
 
     const orderDTO: Order = { credentials, totalPrice, purchases };
 
     setLoading(true);
-
     const result = await createNewOrder(orderDTO);
     if (result.ok) {
       resetOrderForm();
@@ -60,6 +61,9 @@ export default function MakeOrderButton() {
   const isCartEmpty = checkout.length < 1;
   const isButtonDisabled =
     loading || error || isCartEmpty || zeroQuantity || hasFormGaps;
+
+  const canCreateOrder = !isButtonDisabled;
+
   const buttonStatusText =
     ((error || hasFormGaps) && "Complete form") ||
     (loading && "Making order...") ||
