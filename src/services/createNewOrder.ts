@@ -13,5 +13,5 @@ export async function createNewOrder(order: Order) {
     });
   }
 
-  return result;
+  return result?.json();
 }
