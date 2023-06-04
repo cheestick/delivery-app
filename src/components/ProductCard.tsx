@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { defaultImageURL } from "@/utils/constants";
 import ButtonLS from "./ButtonLS";
@@ -17,6 +16,7 @@ export default function ProductCard({
   price,
 }: ProductCardProps) {
   const cartItem = { _id, price, title, imageURL };
+
   return (
     <div className="flex flex-col gap-2 w-80 shadow-xl">
       <Image

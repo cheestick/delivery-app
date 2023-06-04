@@ -1,8 +1,7 @@
 "use client";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode, useContext } from "react";
 import Button from "./ui/Button";
-import { useLocalStorage } from "@react-hooks-library/core";
-import { lsCheckoutKey } from "@/utils/constants";
+import { OrderContext } from "@/context/OrderProvider";
 
 type ButtonType = "reset" | "submit" | "button";
 
@@ -13,27 +12,26 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   cartItem: LSCartItem;
 }
 
-
-
 export default function SaveToLocalStorageButton({
   cartItem,
   ...attributes
 }: ButtonProps) {
-  const [checkout, setCheckout] = useLocalStorage<RequiredLSCartItem[]>(
-    lsCheckoutKey,
-    []
-  );
+  const { checkout, saveCheckout } = useContext(OrderContext);
 
-  // Bug. Every button has ininital LS state []
-  const foundProduct = checkout.find((item) => item._id === cartItem._id);
+  const handleSaveToCart = () => {
+    let newCheckout: RequiredLSCartItem[] = [];
 
-  let newCheckout: RequiredLSCartItem[] = [];
-  if (!foundProduct) {
-    newCheckout = [...checkout, { ...cartItem, quantity: 1 }];
-  } else {
-    foundProduct.quantity += 1;
-    newCheckout = [...checkout];
-  }
+    const foundProduct = checkout.find((item) => item._id === cartItem._id);
 
-  return <Button onClick={() => setCheckout(newCheckout)} {...attributes} />;
+    if (!foundProduct) {
+      newCheckout = [...checkout, { ...cartItem, quantity: 1 }];
+    } else {
+      foundProduct.quantity += 1;
+      newCheckout = [...checkout];
+    }
+
+    saveCheckout(newCheckout);
+  };
+
+  return <Button onClick={handleSaveToCart} {...attributes} />;
 }
