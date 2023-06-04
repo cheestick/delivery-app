@@ -21,14 +21,14 @@ type LSCartItem = Omit<Product, "shopId"> & { quantity?: number };
 type RequiredLSCartItem = Required<LSCartItem>;
 
 type CartItem = {
-  productID: ProductID;
+  productID: string;
   quantity: number;
 };
 
 type Order = {
   credentials: Credentials;
   purchases: CartItem[];
-  totalSum: number;
+  totalPrice: number;
 };
 
 type Credentials = {
