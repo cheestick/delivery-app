@@ -17,6 +17,9 @@ async function createNewOrder(order: Order) {
   return await fetch(`${URL}/orders`, {
     method: "POST",
     body,
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 }
 
