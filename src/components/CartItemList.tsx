@@ -5,18 +5,25 @@ import { OrderContext } from "@/context/OrderProvider";
 
 function CartItemList() {
   const { checkout } = useContext(OrderContext);
+  const isCheckoutEmpty = checkout.length < 1;
   return (
     <>
-      {checkout.map(({ _id, title, price, imageURL, quantity }) => (
-        <CartItem
-          key={_id}
-          _id={_id}
-          title={title}
-          price={price}
-          imageURL={imageURL}
-          quantity={quantity}
-        />
-      ))}
+      {isCheckoutEmpty ? (
+        <p className="mt-10 text-center">
+          Add products you wish to be delivered
+        </p>
+      ) : (
+        checkout.map(({ _id, title, price, imageURL, quantity }) => (
+          <CartItem
+            key={_id}
+            _id={_id}
+            title={title}
+            price={price}
+            imageURL={imageURL}
+            quantity={quantity}
+          />
+        ))
+      )}
     </>
   );
 }
