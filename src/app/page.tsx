@@ -15,7 +15,7 @@ async function getAllShops() {
 
     return result.data;
   } catch (error) {
-    throw error;
+    return null;
   }
 }
 
@@ -23,12 +23,12 @@ async function getAllProducts() {
   try {
     return (await axios.get(`${API_URL}/products`)).data;
   } catch (error) {
-    throw error;
+    return null;
   }
 }
 
 export default async function Home() {
-  const [shops, products] = await Promise.all([
+  const [shops = [], products = []] = await Promise.all([
     getAllShops(),
     getAllProducts(),
   ]);
